@@ -29,7 +29,7 @@
                 @endforeach
 
                 <div class="mt-6">
-                    <a href="{{ route('quizzes.index') }}" class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">Retour aux quiz</a>
+                    <a href="{{ route('dashboard') }}" class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400">Retour au tableau de bord</a>
                 </div>
 
             </div>

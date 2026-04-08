@@ -11,6 +11,7 @@ use App\Models\Question;
 use App\Models\Reponse;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Note;
 
 class DatabaseSeeder extends Seeder
 {
@@ -114,5 +115,17 @@ class DatabaseSeeder extends Seeder
                 }
             }
         }
+        $apprenant = User::where('email', 'apprenant@lms.fr')->first();
+
+        Note::firstOrCreate(
+            [
+                'user_id' => $apprenant->id,
+                'matiere' => 'Quiz verbes irréguliers',
+            ],
+            [
+                'note' => 16,
+            ]
+        );
+        
     }
 }

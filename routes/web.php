@@ -9,6 +9,7 @@ use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ApprenantQuizController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GenerationIAController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -38,6 +39,8 @@ Route::middleware('auth')->group(function () {
         Route::get('questions/create', [QuestionController::class, 'create'])->name('questions.create');
         Route::post('questions', [QuestionController::class, 'store'])->name('questions.store');
         Route::delete('questions/{id}', [QuestionController::class, 'destroy'])->name('questions.destroy');
+        Route::get('generation-ia', [GenerationIAController::class, 'create'])->name('generation.create');
+        Route::post('generation-ia', [GenerationIAController::class, 'store'])->name('generation.store');
     });
 });
 

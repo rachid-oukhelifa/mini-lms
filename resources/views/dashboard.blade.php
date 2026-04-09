@@ -65,6 +65,14 @@
                                 Consulter et modifier les résultats.
                             </p>
                         </a>
+
+                        <a href="{{ route('generation.create') }}"
+                           class="group rounded-2xl border border-[#ece9e2] dark:border-[#2f2f2c] bg-[#fffdf9] dark:bg-[#1b1b18] p-6 transition hover:-translate-y-0.5 hover:shadow-lg">
+                            <p class="text-lg font-semibold text-[#1b1b18] dark:text-[#EDEDEC]">Génération IA</p>
+                            <p class="mt-2 text-sm text-gray-600 dark:text-[#A1A09A]">
+                                Générer automatiquement un cours et un quiz à partir d’une consigne.
+                            </p>
+                        </a>
                     </div>
                 @else
                     <div class="mb-8">

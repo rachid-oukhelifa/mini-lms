@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Routes apprenant
+    Route::get('apprenant/quizzes', [ApprenantQuizController::class, 'index'])->name('apprenant.quizzes');
     Route::get('apprenant/quiz/{id}', [ApprenantQuizController::class, 'show'])->name('apprenant.quiz');
     Route::post('apprenant/quiz/{id}', [ApprenantQuizController::class, 'submit'])->name('apprenant.quiz.submit');
     Route::get('mes-notes', [NoteController::class, 'mesNotes'])->name('notes.mes_notes');

@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Quiz;
 use Illuminate\Http\Request;
+use App\Models\Note;
 
 class ApprenantQuizController extends Controller
 {
+    public function index()
+    {
+        $quizzes = Quiz::with('sousChapitre')->get();
+        return view('apprenant.quizzes', compact('quizzes'));
+    }
+
     public function show(string $id)
     {
         $quiz = Quiz::with('questions.reponses')->findOrFail($id);
@@ -37,6 +44,20 @@ class ApprenantQuizController extends Controller
             ];
         }
 
-        return view('apprenant.resultat', compact('quiz', 'score', 'total', 'resultats'));
+        // 🔥 Calcul sur 20
+        $noteSur20 = $total > 0 ? round(($score / $total) * 20, 2) : 0;
+
+        // 🔥 Sauvegarde automatique
+        Note::updateOrCreate(
+            [
+                'user_id' => auth()->id(),
+                'matiere' => $quiz->titre,
+            ],
+            [
+                'note' => $noteSur20,
+            ]
+        );
+
+        return view('apprenant.resultat', compact('quiz', 'score', 'total', 'resultats', 'noteSur20'));
     }
 }

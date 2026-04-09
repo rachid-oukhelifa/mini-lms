@@ -86,7 +86,7 @@
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                        <a href="{{ route('apprenant.quiz', 1) }}"
+                        <a href="{{ route('apprenant.quizzes') }}"
                            class="group rounded-2xl border border-[#ece9e2] dark:border-[#2f2f2c] bg-[#fffdf9] dark:bg-[#1b1b18] p-6 transition hover:-translate-y-0.5 hover:shadow-lg">
                             <p class="text-lg font-semibold text-[#1b1b18] dark:text-[#EDEDEC]">Passer un quiz</p>
                             <p class="mt-2 text-sm text-gray-600 dark:text-[#A1A09A]">
